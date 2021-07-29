@@ -44,7 +44,7 @@ async function type(req: Request, res: Response){
       }
 }
 
-async function test(req: Request, res: Response){
+async function newTest(req: Request, res: Response){
   const { name, url, professorId, typeId, subjectId }: CreateTest = req.body;
   if(!name || !url || !professorId || !typeId || !subjectId) return res.sendStatus(404);
   const data = {name, url, professorId, typeId, subjectId}
@@ -58,4 +58,4 @@ async function test(req: Request, res: Response){
     }
 }
 
-export { professorBySubject, subject, type };
+export { professorBySubject, subject, type, newTest };
