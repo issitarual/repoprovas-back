@@ -1,8 +1,11 @@
-/* import "reflect-metadata";
-import connectDatabase from "./database"; */
+import "./setup";
+
 import express from "express";
 import cors from "cors";
-import connection from "./database";
+import "reflect-metadata";
+
+import connectDatabase from "./database";
+
 import subject from "./controllers/subjectControlers";
 
 const app = express();
@@ -18,7 +21,8 @@ app.get("/", (req, res) => {
 
 app.get("/subject", subject);
 
-export default app;
-/* export async function init () {
+export async function init () {
   await connectDatabase();
-}  */
+}
+
+export default app;
