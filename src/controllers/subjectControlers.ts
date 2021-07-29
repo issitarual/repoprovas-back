@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { allSubjects, findProfessorBySubject } from "../repositories/subjectRepositories";
+import { allSubjects, findProfessorBySubject, types } from "../repositories/subjectRepositories";
 
 async function subject(req: Request, res: Response){
     try{
@@ -25,4 +25,15 @@ async function professorBySubject(req: Request, res: Response){
       }
 }
 
-export { professorBySubject, subject };
+async function type(req: Request, res: Response){
+    try{
+        const allTypes = await types();
+        res.send(allTypes);
+      }
+      catch(e){
+        console.log(e);
+        res.sendStatus(500);
+      }
+}
+
+export { professorBySubject, subject, type };
