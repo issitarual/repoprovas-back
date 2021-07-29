@@ -3,6 +3,9 @@ import { getRepository } from "typeorm";
 import Subject from "../entities/subject";
 import Professor from "../entities/professor";
 import Type from "../entities/types";
+import Tests from "../entities/test";
+
+import CreateTest from "../controllers/submitControlers"
 
 async function allSubjects(){
     const subject = await getRepository(Subject).find({
@@ -29,4 +32,8 @@ async function types(){
       return type;
 }
 
-export { allSubjects, findProfessorBySubject, types };
+async function addTest(data: CreateTest){
+  await getRepository(Tests).insert(data);
+  }
+
+export { allSubjects, findProfessorBySubject, types, addTest };
