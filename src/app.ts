@@ -1,3 +1,5 @@
+import "reflect-metadata";
+import connectDatabase from "./database";
 import express from "express";
 import cors from "cors";
 
@@ -8,5 +10,11 @@ app.use(express.json());
 app.get("/test", (req, res) => {
   res.send("OK!");
 });
+app.get("/", (req, res) => {
+  res.send("OK!");
+});
 
 export default app;
+export async function init () {
+  await connectDatabase();
+}
