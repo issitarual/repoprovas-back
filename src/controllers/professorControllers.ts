@@ -3,8 +3,8 @@ import { allProfessors } from "../repositories/professorsRepositories";
 
 async function listProfessors(req: Request, res: Response){
     try{
-        const subject = await allProfessors();
-        res.send(subject);
+        const professor = await allProfessors();
+        res.send(professor);
       }
       catch(e){
         console.log(e);
