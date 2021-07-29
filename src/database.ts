@@ -1,6 +1,6 @@
 import { getConnectionManager } from "typeorm";
 
-export default async function connect () {
+/* export default async function connect () {
     const connectionManager = await getConnectionManager();
     const connection = connectionManager.create({
       name: "default",
@@ -10,4 +10,19 @@ export default async function connect () {
     });
     await connection.connect();
     return connection;
-  }
+  } */
+
+import pg from 'pg';
+
+const { Pool } = pg;
+
+const databaseConfig = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+}
+
+const connection = new Pool(databaseConfig);
+
+export default connection;
