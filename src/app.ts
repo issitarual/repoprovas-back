@@ -1,5 +1,5 @@
-import "reflect-metadata";
-import connectDatabase from "./database";
+/* import "reflect-metadata";
+import connectDatabase from "./database"; */
 import express from "express";
 import cors from "cors";
 
@@ -15,6 +15,6 @@ app.get("/", (req, res) => {
 });
 
 export default app;
-export async function init () {
+/* export async function init () {
   await connectDatabase();
-}
+}  */
