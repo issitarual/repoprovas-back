@@ -6,7 +6,7 @@ import "reflect-metadata";
 
 import connectDatabase from "./database";
 
-import subject from "./controllers/subjectControlers";
+import { subject, professorBySubject } from "./controllers/subjectControlers";
 
 const app = express();
 app.use(cors());
@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/subject", subject);
+app.get("/subject/:id", professorBySubject);
 
 export async function init () {
   await connectDatabase();
