@@ -8,6 +8,7 @@ import connectDatabase from "./database";
 
 import { subject, professorBySubject, type, newTest } from "./controllers/submitControlers"
 import { listProfessors } from "./controllers/professorControllers";
+import { listSubject } from "./controllers/subjectControllers";
 
 const app = express();
 app.use(cors());
@@ -26,6 +27,8 @@ app.get("/submit/types", type);
 app.post("/submit", newTest);
 
 app.get("/professor", listProfessors);
+
+app.get("/subject", listSubject);
 
 export async function init () {
   await connectDatabase();
