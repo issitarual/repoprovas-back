@@ -9,6 +9,6 @@ export default class Subject {
   @Column()
   name: string;
 
-  @ManyToOne(() => Semester, Semester => Semester.subjectId)
+  @ManyToOne(() => Semester, semester => semester.subject)
   semester: Semester;
 }
