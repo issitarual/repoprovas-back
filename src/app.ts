@@ -27,7 +27,6 @@ app.get("/submit/types", type);
 app.post("/submit", newTest);
 
 app.get("/professor", listProfessors);
-
 app.get("/subject", listSubject);
 
 export async function init () {
