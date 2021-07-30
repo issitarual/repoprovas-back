@@ -3,7 +3,7 @@ import Subject from "../entities/subject";
 
 async function allSubjects(){
     const subject = await getRepository(Subject).find({
-        relations: ["Semester"]
+        relations: ["semester"]
     });
     return subject;
 }
