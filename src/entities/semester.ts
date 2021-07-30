@@ -10,7 +10,7 @@ export default class Semester {
   semester: number;
 
   @Column()
-  courseId: number;
+  couserId: number;
 
   @Column()
   subjectId: number;
