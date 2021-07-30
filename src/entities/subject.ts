@@ -10,5 +10,5 @@ export default class Subject {
   name: string;
 
   @OneToMany(() => Semester, semester => semester.subject)
-  semester: Subject[];
+    semester: Subject;
 }
