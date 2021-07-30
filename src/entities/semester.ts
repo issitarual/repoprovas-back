@@ -16,5 +16,5 @@ export default class Semester {
   subjectId: number;
 
   @ManyToOne(() => Subject, subject => subject.semester)
-  subject: Subject;
+  subject: Subject[];
 }
