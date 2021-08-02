@@ -21,7 +21,7 @@ async function findTesteByProfessorId(id:number) {
         where: {
             professorId: id
         },
-        relations: ["type", "subject"]
+        relations: ["type", "subject", "professor"]
     });
     return test;
 }
