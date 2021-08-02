@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 import Semester from "./semester";
+import Tests from "./test";
 
 @Entity("subject")
 export default class Subject {
@@ -10,5 +11,8 @@ export default class Subject {
   name: string;
 
   @OneToMany(() => Semester, semester => semester.subject)
-    semester: Subject;
+  semester: Subject;
+
+  @OneToMany(() => Tests, test => test.subject)
+  tests: Tests[];
 }

@@ -1,4 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import Subject from "./subject";
+import Professor from "./professor";
 import Type from "./types";
 
 @Entity("tests")
@@ -23,4 +25,10 @@ export default class Tests {
 
   @ManyToOne(() => Type, type => type.tests)
   type: Type;
+
+  @ManyToOne(() => Professor, professor => professor.tests)
+  professor: Professor;
+
+  @ManyToOne(() => Subject, subject => subject.tests)
+  subject: Subject;
 }

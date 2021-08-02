@@ -1,7 +1,6 @@
 import { getRepository } from "typeorm";
 import Semester from "../entities/semester";
 import Tests from "../entities/test";
-import Type from "../entities/types";
 
 async function allSubjects(){
     const subject = await getRepository(Semester).find({
@@ -11,11 +10,11 @@ async function allSubjects(){
 }
 
 async function findTesteBySubjectId(id:number) {
-    const test = await getRepository(Type).find({
+    const test = await getRepository(Tests).find({
         where: {
             subjectId: `${id}`
         },
-        relations: ["tests"]
+        relations: ["type"]
     });
     return test;
 }
