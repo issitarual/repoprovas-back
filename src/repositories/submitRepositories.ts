@@ -48,7 +48,10 @@ async function addTest(data: CreateTest){
     typeId: typeId,
     professorId: professorId
   })
-  if(value.error) return false;
+  if(value.error){
+    console.log(value.error)
+    return false
+  }
   else{
     await getRepository(Tests).insert(data);
     return true;
