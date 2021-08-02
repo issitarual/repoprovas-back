@@ -10,7 +10,7 @@ async function allSubjects(){
 }
 
 async function findTesteBySubjectId(id:number) {
-    const test = await getRepository(Tests).find({ where: {subjectId: id} });
+    const test = await getRepository(Tests).find();
     return test;
 }
 
