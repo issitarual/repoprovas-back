@@ -13,7 +13,8 @@ async function findTesteBySubjectId(id:number) {
     const test = await getRepository(Tests).find({
         where: {
             subjectId: `${id}`
-        }
+        },
+        relations: ["type"]
     });
     return test;
 }

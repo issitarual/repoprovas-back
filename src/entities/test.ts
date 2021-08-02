@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import Type from "./types";
 
 @Entity("tests")
 export default class Tests {
@@ -19,4 +20,7 @@ export default class Tests {
 
   @Column()
   url: string;
+
+  @ManyToOne(() => Type, type => type.tests)
+  type: Type;
 }

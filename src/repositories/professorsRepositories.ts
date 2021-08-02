@@ -20,7 +20,8 @@ async function findTesteByProfessorId(id:number) {
     const test = await getRepository(Tests).find({
         where: {
             professorId: id
-        }
+        },
+        relations: ["type"]
     });
     return test;
 }
