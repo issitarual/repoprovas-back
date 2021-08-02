@@ -13,9 +13,9 @@ async function listSubject(req: Request, res: Response){
 }
 
 async function findSubjectTests(req: Request, res: Response){
-    const {id}: {id: number} = req.body;
+    const {id}: {id: string} = req.body;
     try{
-      const tests = await findTesteBySubjectId(id);
+      const tests = await findTesteBySubjectId(parseInt(id));
       res.send(tests);
     }
     catch(e){

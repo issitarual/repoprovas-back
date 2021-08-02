@@ -13,9 +13,9 @@ async function listProfessors(req: Request, res: Response){
 }
 
 async function findProfessorTests(req: Request, res: Response){
-    const { id }: {id: number} = req.body;
+    const { id }: {id: string} = req.body;
     try{
-      const tests = await findTesteByProfessorId(id);
+      const tests = await findTesteByProfessorId(parseInt(id));
       res.send(tests);
     }
     catch(e){

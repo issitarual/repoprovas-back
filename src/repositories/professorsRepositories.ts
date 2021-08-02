@@ -17,7 +17,11 @@ async function allProfessors(){
 }
 
 async function findTesteByProfessorId(id:number) {
-    const test = await getRepository(Tests).find();
+    const test = await getRepository(Tests).find({
+        where: {
+            professorId: id
+        }
+    });
     return test;
 }
 
