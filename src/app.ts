@@ -7,8 +7,8 @@ import "reflect-metadata";
 import connectDatabase from "./database";
 
 import { subject, professorBySubject, type, newTest } from "./controllers/submitControlers"
-import { listProfessors } from "./controllers/professorControllers";
-import { listSubject } from "./controllers/subjectControllers";
+import { findProfessorTests, listProfessors } from "./controllers/professorControllers";
+import { findSubjectTests, listSubject } from "./controllers/subjectControllers";
 
 const app = express();
 app.use(cors());
@@ -22,12 +22,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/submit", subject);
-app.get("/submit/subject/:id", professorBySubject);
+app.get("/submit/subject/:id", professorBySubject); //validação com JOI
 app.get("/submit/types", type);
-app.post("/submit", newTest);
+app.post("/submit", newTest); //validação com JOI
 
 app.get("/professor", listProfessors);
+app.get("/professor/:id", findProfessorTests); //validação com JOI
+
 app.get("/subject", listSubject);
+app.get("/subject/:id", findSubjectTests); //validação com JOI
 
 export async function init () {
   await connectDatabase();

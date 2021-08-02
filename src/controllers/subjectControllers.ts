@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { allSubjects } from "../repositories/subjectRepositories";
+import { allSubjects, findTesteBySubjectId } from "../repositories/subjectRepositories";
 
 async function listSubject(req: Request, res: Response){
     try{
@@ -12,5 +12,17 @@ async function listSubject(req: Request, res: Response){
       }
 }
 
-export { listSubject };
+async function findSubjectTests(req: Request, res: Response){
+    const {id}: {id: number} = req.body;
+    try{
+      const tests = await findTesteBySubjectId(id);
+      res.send(tests);
+    }
+    catch(e){
+      console.log(e);
+      res.sendStatus(500);
+    }
+}
+
+export { listSubject, findSubjectTests };
 

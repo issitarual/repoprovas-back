@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { allProfessors } from "../repositories/professorsRepositories";
+import { allProfessors, findTesteByProfessorId } from "../repositories/professorsRepositories";
 
 async function listProfessors(req: Request, res: Response){
     try{
@@ -12,4 +12,16 @@ async function listProfessors(req: Request, res: Response){
       }
 }
 
-export { listProfessors };
+async function findProfessorTests(req: Request, res: Response){
+    const { id }: {id: number} = req.body;
+    try{
+      const tests = await findTesteByProfessorId(id);
+      res.send(tests);
+    }
+    catch(e){
+      console.log(e);
+      res.sendStatus(500);
+    }
+}
+
+export { listProfessors, findProfessorTests };

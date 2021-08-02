@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm";
 import Semester from "../entities/semester";
-import Subject from "../entities/subject";
+import Tests from "../entities/test";
 
 async function allSubjects(){
     const subject = await getRepository(Semester).find({
@@ -9,4 +9,9 @@ async function allSubjects(){
     return subject;
 }
 
-export { allSubjects };
+async function findTesteBySubjectId(id:number) {
+    const test = await getRepository(Tests).find({ subjectId: id });
+    return test;
+}
+
+export { allSubjects, findTesteBySubjectId };

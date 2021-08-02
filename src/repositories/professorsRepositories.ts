@@ -1,5 +1,6 @@
 import { getRepository } from "typeorm";
 import Professor from "../entities/professor";
+import Tests from "../entities/test";
 
 async function allProfessors(){
     const professor = await getRepository(Professor).find();
@@ -15,4 +16,9 @@ async function allProfessors(){
     return removeDuplicate;
 }
 
-export { allProfessors };
+async function findTesteByProfessorId(id:number) {
+    const test = await getRepository(Tests).find({ professorId: id });
+    return test;
+}
+
+export { allProfessors, findTesteByProfessorId };
