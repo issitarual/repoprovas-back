@@ -22,15 +22,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/submit", subject);
-app.get("/submit/subject/:id", professorBySubject); //validação com JOI
+app.get("/submit/subject/:id", professorBySubject); 
 app.get("/submit/types", type);
-app.post("/submit", newTest); //validação com JOI
+app.post("/submit", newTest); 
 
 app.get("/professor", listProfessors);
-app.get("/professor/:id", findProfessorTests); //validação com JOI
+app.get("/professor/:id", findProfessorTests);
 
 app.get("/subject", listSubject);
-app.get("/subject/:id", findSubjectTests); //validação com JOI
+app.get("/subject/:id", findSubjectTests); 
 
 export async function init () {
   await connectDatabase();
