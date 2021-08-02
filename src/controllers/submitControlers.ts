@@ -50,8 +50,8 @@ async function newTest(req: Request, res: Response){
   if(!name || !url || !professorId || !typeId || !subjectId) return res.sendStatus(404);
   const data = {name, url, professorId, typeId, subjectId}
   try{
-      await addTest(data);
-      if(!addTest) return res.sendStatus(400)
+      const newTest = await addTest(data);
+      if(!newTest) return res.sendStatus(400)
       else return res.send(201);
     }
     catch(e){
