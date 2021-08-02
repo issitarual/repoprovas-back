@@ -25,7 +25,8 @@ async function professorBySubject(req: Request, res: Response){
     if(!id || !parseInt(id)) return res.sendStatus(404);
     try{
         const professor = await findProfessorBySubject(parseInt(id));
-        res.send(professor);
+        if(!professor) return res.sendStatus(400);
+        else return res.send(professor);
       }
       catch(e){
         console.log(e);
@@ -50,7 +51,8 @@ async function newTest(req: Request, res: Response){
   const data = {name, url, professorId, typeId, subjectId}
   try{
       await addTest(data);
-      res.send(201);
+      if(!addTest) return res.sendStatus(400)
+      else return res.send(201);
     }
     catch(e){
       console.log(e);
