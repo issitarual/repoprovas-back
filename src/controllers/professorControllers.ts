@@ -13,7 +13,7 @@ async function listProfessors(req: Request, res: Response){
 }
 
 async function findProfessorTests(req: Request, res: Response){
-    const { id }: {id: string} = req.body;
+    const { id } = req.params;
     try{
       const tests = await findTesteByProfessorId(parseInt(id));
       res.send(tests);

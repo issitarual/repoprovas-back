@@ -13,7 +13,7 @@ async function listSubject(req: Request, res: Response){
 }
 
 async function findSubjectTests(req: Request, res: Response){
-    const {id}: {id: string} = req.body;
+    const {id} = req.params;
     try{
       const tests = await findTesteBySubjectId(parseInt(id));
       res.send(tests);
