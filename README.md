@@ -27,5 +27,5 @@ npm i
 ```
 5. Run the back-end with
 ```bash
-npm start
+npm run build
 ```
