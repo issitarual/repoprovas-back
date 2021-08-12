@@ -7,7 +7,6 @@ This is an API wich anyone with saves tests and send tests informations, filter 
 - [x] Send test list by subject
 - [x] Send test list by professor
 ### Future improvements 🔮
-- [ ] Implement TypeScript and TypeORM
 - [ ] Implement Migrations
 ## Technologies
 The following tools and frameworks were used in the construction of the project:<br>
@@ -15,6 +14,7 @@ The following tools and frameworks were used in the construction of the project:
   <img style='margin: 5px;' src='https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white'>
   <img style='margin: 5px;' src='https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white'>
   <img style='margin: 5px;' src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+  <img style='margin: 5px;' src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
 </p>
 
 ## How to run
