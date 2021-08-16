@@ -1,4 +1,4 @@
-import '../../src/setup';
+import "../../src/setup";
 import supertest from "supertest";
 import { getConnection } from "typeorm";
 
@@ -20,66 +20,64 @@ afterAll(async () => {
 });
 
 describe("GET /subject", () => {
-    it("should answer with status 200", async () => {
-        const response = await supertest(app).get("/subject");
+  it("should answer with status 200", async () => {
+    const response = await supertest(app).get("/subject");
 
-        expect(response.status).toBe(200);
+    expect(response.status).toBe(200);
 
-        console.log(response.body)
+    console.log(response.body);
 
-        expect(response.body).toEqual(
-            expect.arrayContaining([
-            expect.objectContaining({
-                couserId: 1, 
-                id: 2, 
-                semester: 1, 
-                subject: {id: 1, name: "teste"}, 
-                subjectId: 1
-            })
-            ])
-        );
-    })
-})
+    expect(response.body).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          couserId: 1,
+          id: 2,
+          semester: 1,
+          subject: { id: 1, name: "teste" },
+          subjectId: 1,
+        }),
+      ])
+    );
+  });
+});
 
 describe("GET /subject/:id", () => {
-    it("should answer with status 200", async () => {
-        const test = await createTest();
-        const { name, url, subjectId, professorId, typeId } = test;
-        
-        const response = await supertest(app).get("/subject/1");
+  it("should answer with status 200", async () => {
+    const test = await createTest();
+    const { name, url, subjectId, professorId, typeId } = test;
 
-        expect(response.status).toBe(200);
+    const response = await supertest(app).get("/subject/1");
 
-        expect(response.body).toEqual(
-            expect.arrayContaining([
-            expect.objectContaining({
-                url: url,
-                name: name,
-                subjectId: subjectId,
-                professorId:professorId,
-                typeId: typeId
-            })
-            ])
-        );
-    })
+    expect(response.status).toBe(200);
 
-    it("should answer with status 200", async () => {
-        await createTest();
+    expect(response.body).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          url: url,
+          name: name,
+          subjectId: subjectId,
+          professorId: professorId,
+          typeId: typeId,
+        }),
+      ])
+    );
+  });
 
-        const response = await supertest(app).get("/subject/2");
+  it("should answer with status 200", async () => {
+    await createTest();
 
-        expect(response.status).toBe(200);
+    const response = await supertest(app).get("/subject/2");
 
-        expect(response.body).toEqual(
-            expect.arrayContaining([])
-        );
-    })
+    expect(response.status).toBe(200);
 
-    it("should answer with status 400 for invalid params", async () => {
-        await createTest();
+    expect(response.body).toEqual(expect.arrayContaining([]));
+  });
 
-        const response = await supertest(app).get("/subject/test");
+  it("should answer with status 400 for invalid params", async () => {
+    await createTest();
 
-        expect(response.status).toBe(400);
-    })
-})
+    const response = await supertest(app).get("/subject/test");
+
+    expect(response.status).toBe(400);
+  });
+});

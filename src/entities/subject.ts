@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  JoinColumn,
+} from "typeorm";
 import Semester from "./semester";
 import Tests from "./test";
 
@@ -10,9 +16,9 @@ export default class Subject {
   @Column()
   name: string;
 
-  @OneToMany(() => Semester, semester => semester.subject)
+  @OneToMany(() => Semester, (semester) => semester.subject)
   semester: Subject;
 
-  @OneToMany(() => Tests, test => test.subject)
+  @OneToMany(() => Tests, (test) => test.subject)
   tests: Tests[];
 }

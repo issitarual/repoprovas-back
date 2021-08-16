@@ -15,6 +15,6 @@ export default class Semester {
   @Column()
   subjectId: number;
 
-  @ManyToOne(() => Subject, subject => subject.semester)
+  @ManyToOne(() => Subject, (subject) => subject.semester)
   subject: Subject[];
 }

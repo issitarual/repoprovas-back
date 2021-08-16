@@ -9,6 +9,6 @@ export default class Type {
   @Column()
   name: string;
 
-  @OneToMany(() => Tests, test => test.type)
+  @OneToMany(() => Tests, (test) => test.type)
   tests: Tests[];
 }

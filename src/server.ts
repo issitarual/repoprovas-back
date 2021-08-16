@@ -1,4 +1,4 @@
-import './setup';
+import "./setup";
 
 import app, { init } from "./app";
 
