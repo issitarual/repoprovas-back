@@ -17,9 +17,6 @@ app.use(express.json());
 app.get("/test", (req, res) => {
   res.send("OK!");
 });
-app.get("/", (req, res) => {
-  res.send("OK!");
-});
 
 app.get("/submit", subject);
 app.get("/submit/subject/:id", professorBySubject); 
